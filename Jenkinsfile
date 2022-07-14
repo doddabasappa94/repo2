@@ -3,14 +3,14 @@ pipeline {
     stages{
         stage('checkout'){
          parallel {
-          stage('main branch checkout') {
+          stag ('Repo1 checkout') {
               steps{
-              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/doddabasappa94/parallel-devops.git']]])  
+              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/doddabasappa94/repo1.git']]])  
               }
               }
-             stage('develop branch checkout') {
+             stage(' Repo2 checkout') {
               steps{
-              checkout([$class: 'GitSCM', branches: [[name: '*/develop']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/doddabasappa94/parallel-devops.git']]])  
+              checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/doddabasappa94/repo2.git']]])  
               }
               }
          }
